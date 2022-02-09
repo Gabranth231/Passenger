@@ -55,4 +55,16 @@ public class PassengerTest {
                 new Passenger("Mr","Tim","0000000000","111111",21));
         assertEquals(invalid,exceptionThrown.getMessage());
     }
+    @Test
+    public void TestConstructorAge(){
+        p1 = new Passenger("Mr","Tim","0000000000","1111111",22);
+        assertEquals("0000000000",p1.getID());
+    }
+    @Test
+    public void TestConstructorInvalidAge(){
+        final String invalid = "Invalid Age Provided";
+        Exception exceptionThrown = assertThrows(IllegalArgumentException.class,()->
+                new Passenger("Mr","Tim","0000000000","1111111",15));
+        assertEquals(invalid,exceptionThrown.getMessage());
+    }
 }
