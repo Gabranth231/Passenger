@@ -1,45 +1,51 @@
 package programTest.gmit;
 public class Passenger {
-    private String Title;
-    private String Name;
+    private String title;
+    private String name;
     private String ID;
-    private long PhoneNum;
-    private int Age;
+    private long phone;
+    private int age;
 
     public Passenger(String title, String name, String ID, long phoneNum, int age) {
-        Title = title;
-        Name = name;
-        this.ID = ID;
-        PhoneNum = phoneNum;
-        Age = age;
+        setTitle(title);
+        setName(name);
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public String getID() {
         return ID;
     }
 
-    public long getPhoneNum() {
-        return PhoneNum;
+    public long getPhone() {
+        return phone;
     }
 
     public int getAge() {
-        return Age;
+        return age;
     }
 
     public void setTitle(String title) {
         if(title.equals("Mr")||title.equals("Mrs")||title.equals("Ms")){
-            Title =title;
+            this.title = title;
         }
         else{
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid title Provided");
+        }
+    }
+
+    public void setName(String name) {
+        if(name.length()>=3){
+            this.name = name;
+        }
+        else{
+            throw new IllegalArgumentException("Invalid name Provided");
         }
     }
 }

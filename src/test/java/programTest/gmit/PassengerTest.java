@@ -9,14 +9,26 @@ public class PassengerTest {
     Passenger p1;
     @Test
     public void TestConstructorTitle(){
-        p1 = new Passenger("Mr","Martin","0085959",859459,22);
+        p1 = new Passenger("Mr","Martin","00000000",111111,22);
         assertEquals("Mr",p1.getTitle());
     }
     @Test
     public void TestConstructorInvalidTitle(){
         final String invalid = "Invalid title Provided";
         Exception exceptionThrown = assertThrows(IllegalArgumentException.class,()->
-                new Passenger("Miss","Abby","879878947",774651,21));
+                new Passenger("Miss","Abby","00000000",111111,21));
+        assertEquals(invalid,exceptionThrown.getMessage());
+    }
+    @Test
+    public void TestConstructorName(){
+        p1 = new Passenger("Mr","Tim","00000000",111111,22);
+        assertEquals("Tim",p1.getName());
+    }
+    @Test
+    public void TestConstructorInvalidName(){
+        final String invalid = "Invalid name Provided";
+        Exception exceptionThrown = assertThrows(IllegalArgumentException.class,()->
+                new Passenger("Mr","Ti","00000000",111111,21));
         assertEquals(invalid,exceptionThrown.getMessage());
     }
 }
