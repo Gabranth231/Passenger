@@ -11,6 +11,7 @@ public class Passenger {
         setName(name);
         setID(ID);
         setPhone(phoneNum);
+        setAge(age);
     }
 
     public String getTitle() {
@@ -66,6 +67,15 @@ public class Passenger {
         }
         else{
             throw new IllegalArgumentException("Invalid Phone Provided");
+        }
+    }
+
+    public void setAge(int age) {
+        if(age >= 16){
+            this.age = age;
+        }
+        else{
+            throw new IllegalArgumentException("Invalid Age Provided");
         }
     }
 }
